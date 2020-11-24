@@ -68,19 +68,14 @@ Solution::setZeroes(vector<vector<int>>& matrix)
         }
     }
     
-    // traverse the columns.
-    for (int j = 1 ;j < matrix[0].size();j++)
+    for (int i = 1 ;i < matrix.size();i++)
     {
-        for (int i = 1; (matrix[0][j] == 0) && i < matrix.size(); i++)
-            matrix[i][j] = 0;        
+        for (int j = 1; j < matrix[i].size(); j++)
+        {
+            if ((matrix[i][0] == 0) || (matrix[0][j] == 0))
+                matrix[i][j] = 0;
+        }
     }
-    
-    // traverse the rows.
-     for (int i = 1 ;i < matrix.size();i++)
-     {
-         for (int j = 1; (matrix[i][0] == 0) && j < matrix[0].size(); j++)
-            matrix[i][j] = 0;
-     }
     
     for (int i = 0 ;(row == 0) && (i < matrix[0].size()); i++)
     {
